@@ -1,29 +1,38 @@
+from tkinter import *
 from random import randint
+root = Tk()
 
-print("\t\t\t ***** GUESS ME *****")
-
-ans = randint(1,100)
+root.title("GUESS ME")
+root.geometry("350x100")
 
 class ValueSmallError(Exception):
-    pass
+        pass
 class ValueLargeError(Exception):
-    pass
+        pass
 
+ans = randint(1,100)
+    
 def guess():
+    num = int(num1.get())
     try:
-        num = int(input("\nGuess the number: "))
         if num > ans:
             raise ValueLargeError
         elif num < ans:
             raise ValueSmallError
         else:
-            print("Congratulations, You won !!")
+            Label(root,text = "Congratulations, You won !!").grid(column=0,row=3)
     except ValueLargeError:
-        print("\nYou entered a large number. Guess a smaller one...")
-        guess()
+        Label(root,text = "Your no is large, guess again").grid(column=0,row=3)
     except ValueSmallError:
-        print("\nYou entered a small number. Guess a larger one...")
-        guess()
+        Label(root,text = "Your no is small, guess again").grid(column=0,row=3)
     return
 
-guess()
+Label(root,text = "\t\t*** GUESS ME ***").grid(column=0,row=0)
+Label(root,text = "\nGuess the number").grid(column=0,row=1)
+
+num1 = Entry(root)
+num1.grid(column=1,row=1)
+
+btn1 = Button(root,text = "Submit",command = guess).grid(column=1,row=3)
+
+root.mainloop()
