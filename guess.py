@@ -28,7 +28,7 @@ def guess():
     return
 
 Label(root,text = "\t\t*** GUESS ME ***").grid(column=0,row=0)
-Label(root,text = "\nGuess the number").grid(column=0,row=1)
+Label(root,text = "\nGuess the number(1-100)").grid(column=0,row=1)
 
 num1 = Entry(root)
 num1.grid(column=1,row=1)
