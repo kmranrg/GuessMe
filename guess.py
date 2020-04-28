@@ -1,9 +1,17 @@
 from tkinter import *
+from tkinter.ttk import *
 from random import randint
 root = Tk()
 
 root.title("GUESS ME")
 root.geometry("350x100")
+root.configure(background='#AEB6BF')
+
+#Style
+style = Style()
+style.theme_use('classic')
+for elem in ['TLabel', 'TButton']:
+	style.configure(elem, background='#AEB6BF')
 
 class ValueSmallError(Exception):
         pass
