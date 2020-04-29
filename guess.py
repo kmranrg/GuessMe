@@ -1,5 +1,5 @@
 from tkinter import *
-from tkinter.ttk import *
+from tkinter.ttk import * # styling library
 from random import randint
 root = Tk()
 
